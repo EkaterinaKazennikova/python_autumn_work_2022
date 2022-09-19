@@ -1,7 +1,7 @@
 #Преобразуйте переменную age и foo в число 
 age = "23"
-age = int(age)
-print(type(int(age)))
+print(int(age))
+print(type(age))
 
 foo = "23abc"                  #? нельзя преобразовать строку с числом и буквами
 print(type(int(foo)))
