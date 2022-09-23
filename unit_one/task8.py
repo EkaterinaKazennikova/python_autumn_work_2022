@@ -5,14 +5,19 @@
 A = 10
 B = 3
 C = 7
-D = C
-E = A
-A = B
-B = C
-C = E
-print("A =", A)
-print("B =", B)
-print("C =", E)
+if A <= B <= C:
+    print(A, B, C)
+elif A <= C <= B:
+    print(A, C, B)
+elif B <= A <= C:
+    print(B, A, C)
+elif B <= C <= A:
+    print(B, C, A)
+elif C <= A <= B:
+    print(C, A, B)
+else:
+    print(C, B, A)
+
 
 # Итоговый результат должен быть:
 # A = 3
@@ -23,11 +28,18 @@ print("C =", E)
 A = 2
 B = 10
 C = 7
-D = B
-B = C
-print("A =", A)
-print("B =", B)
-print("C =", D)
+if A <= B <= C:
+    print(A, B, C)
+elif A <= C <= B:
+    print(A, C, B)
+elif B <= A <= C:
+    print(B, A, C)
+elif B <= C <= A:
+    print(B, C, A)
+elif C <= A <= B:
+    print(C, A, B)
+else:
+    print(C, B, A)
 
 
 # Итоговый результат должен быть:

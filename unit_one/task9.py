@@ -3,5 +3,9 @@
 
 A, B = int(input()), int(input())
 A != 0
-x = -B / A
-print(x)
+if (B == 0):
+    print('много вариантов решения')
+elif ((B % a) != 0):
+    print('решения нет')
+else:
+print(-B / A)
