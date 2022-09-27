@@ -5,3 +5,5 @@ A = [10, 9, 8 ,7 ,6 ,7 ,5, 22, 89 , 23]
 for i in range(len(A)):
     A [i] += 1
 print(A)
+
+
