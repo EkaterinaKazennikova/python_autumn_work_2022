@@ -1,6 +1,6 @@
 # Написать игру "Поле чудес"
 import random
-from typing import List
+
 answers = ["оператор", "функция", "класс"]
 questions = [
         "Наименьшая автономная часть языка программирования",
@@ -11,17 +11,17 @@ questions = [
 index = random.randrange(0, len(answers))
 
 question = questions[index]
-answer = answers[index]
+answer = answers[index].upper()
 
 print('Вопрос:', question)
-print('.'*len(answer))
+print('▮'*len(answer))
 
 max_penalty_points = 10
 penalty_points = 0
 guessed_letters = []
 while penalty_points < max_penalty_points:
     print('Введите букву: ')
-    try_letter = str(input()).upper()
+    try_letter = answer = answers[index].upper()
 
     if try_letter in answer:
         print('Есть такая буква!')
@@ -29,11 +29,11 @@ while penalty_points < max_penalty_points:
         masked_word = answer
         for letter in answer:
             if letter not in guessed_letters:
-                masked_word = masked_word.replace(letter, '.')
-            print(masked_word)
-            if masked_word == answer:
-                print('Угадано! У вас штрафных баллов: ', penalty_points)
-                break
+                masked_word = masked_word.replace(letter, '▮')
+        print(masked_word)
+        if masked_word == answer:
+            print('Угадано! У вас штрафных баллов: ', penalty_points)
+            break
 
     else:
         penalty_points += 1

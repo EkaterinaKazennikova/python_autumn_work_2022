@@ -8,12 +8,41 @@
 #........................................
 #Выводы комбинаций оформить в список кортежей.
 
+не сделано
 import random
+#def combination():
+    #rolls = []
+    #for i in range(1, 36):
+        #total = random.randint(1, 6) + random.randint(1, 6)
+        #rolls.append(total)
+    #return rolls
+#summ = combination()
+count = 36
 def combination():
-    result1 = random.randint(1, 6)
-    result2 = random.randint(1, 6)
-    return (result1, result2)
+    while count < 36:
+        result1 = random.randint(1, 6)
+        result2 = random.randint(1, 6)
+        return (result1, result2)
 total = combination()
-print((f"1 кость = {total[0]} | 2 кость = {total[1]}"), "сумма", total[0] + total[1])
+print((f"1 кость = total[0] | 2 кость = total[1]"), "сумма", total[0] + total[1])
+
+    #result1 = random.randint(1, 6)
+    #result2 = random.randint(1, 6)
+    #return (result1, result2)
+    #total = 0
+    #for i in range(36):
+        #total += random.randint(1, 6)
+        #return(total)
+#res1 = result1
+#res2 = result2
+#total = combination()
+#print((f"1 кость = {total[0]} | 2 кость = {total[1]}"), "сумма", total)
 
 
+#import random
+#def combination():
+    #result1 = random.randint(1, 6)
+    #result2 = random.randint(1, 6)
+    #return (result1, result2)
+#total = combination()
+#print((f"1 кость = {total[0]} | 2 кость = {total[1]}"), "сумма", total[0] + total[1])
