@@ -20,8 +20,8 @@ max_penalty_points = 10
 penalty_points = 0
 guessed_letters = []
 while penalty_points < max_penalty_points:
-    print('Введите букву: ')
-    try_letter = answer = answers[index].upper()
+    print('Введите букву:')
+    try_letter = str(input()).upper()
 
     if try_letter in answer:
         print('Есть такая буква!')
@@ -34,7 +34,6 @@ while penalty_points < max_penalty_points:
         if masked_word == answer:
             print('Угадано! У вас штрафных баллов: ', penalty_points)
             break
-
     else:
         penalty_points += 1
         print('нет такой буквы, штрафных баллов: ', penalty_points)
