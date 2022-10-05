@@ -6,16 +6,17 @@
 #8 5 12 12 15	                    hello
 #8 5 12 12 15 , 0 23 15 18 12 4 !	hello, world!
 
-#import string, re
-#num = input()
-#num_index = list(num)
-#letters = string.ascii_letters
-#for num.index() in enumerate(letters.index()):
-#    char = f'{chr(num + 97)}'
-#print(char)
+def convert_digits_to_char(numbers):
+    letters = ''
+    for num in numbers.split():
+        if num.isdigit():
+            letters += f'{chr(int(num) + 96)}'
+        else:
+            letters += num
+    return letters
 
-import string
-alphabet = string.ascii_uppercase
-numbers = input().split()
-letters = [alphabet[int(number)-1] for number in numbers]
-print(letters, sep='')
+
+if __name__ == '__main__':
+    print(convert_digits_to_char('8 5 12 12 15 , 0 23 15 18 12 4 !'))
+
+

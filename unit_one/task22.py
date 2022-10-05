@@ -12,23 +12,35 @@
 #В этой задаче удобно считывать файл построчно, шифруя каждую строку в отдельности.
 #В каждой строчке содержатся различные символы. Шифровать нужно только буквы кириллицы.
 
-fd = open('message.txt', 'rt', encoding='utf-8')
+CYRILLIC_UPPERCASE = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+CYRILLIC_LOWERCASE = CYRILLIC_UPPERCASE.lower()
+CYRILLIC_LETTERS = CYRILLIC_UPPERCASE + CYRILLIC_LOWERCASE
 
-lines = fd.readlines()
-print(lines)
 
-shift = 1
+def encode_ceasar(input_string, shift):
+    shift = shift + 1
+    encoded_string = ''
+    for char in input_string:
+        if char in CYRILLIC_UPPERCASE:
+            char_index = CYRILLIC_UPPERCASE.index(char)
+            encoded_string += CYRILLIC_UPPERCASE[char_index-shift]
+        elif char in CYRILLIC_LOWERCASE:
+            char_index = CYRILLIC_LOWERCASE.index(char)
+            encoded_string += CYRILLIC_LOWERCASE[char_index-shift]
+        else:
+            encoded_string += char
+    return encoded_string
 
-def cesar(letter, shift):
-    result = ''
-    for letter in lines[1]:
-        result_index = letter.indes - shift
-        result_new =
-    else:
-        result += letter
-    return result
-cesar_change = cesar(result)
-print(cesar_change)
+
+if __name__ == '__main__':
+    encoded_lines = []
+    with open('message.txt') as f:
+        lines = f.readlines()
+        for index, line in enumerate(lines, start=1):
+            encoded_lines.append(encode_ceasar(line, index))
+
+    with open('encoded_message.txt', 'w') as f:
+        f.writelines(encoded_lines)
 
 
 
