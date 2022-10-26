@@ -11,22 +11,25 @@ import datetime
 import time
 #недоделано
 
+from datetime import  datetime
+
+start = datetime.now()
 def decor_stat(func):
-    def wrapper():
-        count_calls = 0
-        start_time = time.perf_counter_ns()
-        end_time = start_time + time.perf_counter_ns()
-        result = func()
-        print(datetime.datetime.now(), end_time)
-        return result
+    def wrapper(*a, **kwargs):
+        wrapper.count += 1
+        return func(*a, **kwargs)
+        #count_calls = 0
+        #start_time = time.perf_counter_ns()
+        #end_time = start_time + time.perf_counter_ns()
+        #result = func()
+        #print(datetime.datetime.now(), end_time)
+        #return result
 
          #if i in range():
          #  count_calls += 1
          #retern counnt_calls
-
+    wrapper.count = 0
     return wrapper()
-
-
 
 def stat():
     render = 0
