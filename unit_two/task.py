@@ -103,10 +103,15 @@ cur.execute(SQL_IN)
 print(conn)
 
 # 9. Проверка на соответствие шаблону (LIKE)
-#?
-SELECT surname
-     from students
-   where surname LIKE stud
+SQL_LIKE = f"""SELECT id, surname
+                  FROM students
+                    WHERE surname LIKE 'stud%'"""
+
+cur.execute(SQL_LIKE)
+
+records = cur.fetchall()
+
+print(conn)
 
 #10. Проверка на равенство NULL (is NULL)
 SQL_NULL = f"""SELECT id
