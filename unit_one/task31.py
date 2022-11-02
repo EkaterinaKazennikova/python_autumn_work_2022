@@ -7,37 +7,30 @@
 
 # Декоратор должен применяться для различных функций с переменным числом аргументов.
 # Статистику вызовов необходимо записывать в файл при каждом запуске скрипта.
-import datetime
-import time
-#недоделано
 
-from datetime import  datetime
+from random import randint as rand
+from time import time, strftime
 
-start = datetime.now()
 def decor_stat(func):
     def wrapper(*a, **kwargs):
+        f = open("debug.log", "x")
         wrapper.count += 1
-        return func(*a, **kwargs)
-        #count_calls = 0
-        #start_time = time.perf_counter_ns()
-        #end_time = start_time + time.perf_counter_ns()
-        #result = func()
-        #print(datetime.datetime.now(), end_time)
-        #return result
+        res = func(*args, **kwargs)
+        f.write(
+            "{0} Была вызвана: {1} раз. Последний вызов {2}.\n".format(func.__name__, wrapper.count, strftime("%c")))
+        return res
 
-         #if i in range():
-         #  count_calls += 1
-         #retern counnt_calls
     wrapper.count = 0
-    return wrapper()
+    return wrapper
+@decor_stat
+def field_gen(rows=5, kolumns=5):
+    res = [[rand(0, 1) for _ in range(kolumns)] for _ in range(rows)]
+    return res
+@decor_stat
+def count_ship(field):
+    digit = [digits for row in field for digits in row]
+    return digit.count(1)
 
-def stat():
-    render = 0
-    for i in range(1000):
-        render += 1
 
-    return render
-wp = decor_stat(stat)
-print(wp())
 
 
