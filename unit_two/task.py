@@ -24,8 +24,12 @@ SQL = f"""SELECT s.surname , t."name"n , t.condition
                             
 
 cur.execute(SQL)
+records = cur.fetchall()
+for row in records:
+    print(row)
 
-print(conn)
+conn(close)
+
 
 #2. Вычисляемый столбец
 #студенты решившие задачу 1
@@ -37,8 +41,12 @@ SQL_TASK = f"""SELECT s.surname , t.name
                    and t.id = st.id_task
 	               and t.id = 1"""
 cur.execute(SQL_TASK)
+records = cur.fetchall()
+for row in records:
+    print(row)
 
-print(conn)
+
+conn(close)
 
 #3. Выборка всех столбцов
 
@@ -49,7 +57,12 @@ SQL_ALL = f"""SELECT s.surname , t.name , t.condition
 
 cur.execute(SQL_ALL)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 #4. Повторяющиеся строки (DISTINCT)
 
@@ -58,7 +71,12 @@ SQL_DISTINCT = f"""SELECT DISTINCT s.surname
 
 cur.execute(SQL_DISTINCT)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 #5. Отбор строк (WHERE) с оператором ставнения
 
@@ -68,7 +86,12 @@ SQL_WHERE = f"""SELECT id_students , id_task
 
 cur.execute(SQL_WHERE)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 # 6. Выборка одной строки
 
@@ -79,7 +102,12 @@ SQL_LINE = f"""SELECT name
 
 cur.execute(SQL_LINE)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 # 7. Проверка на принадлежность диапазону (BETWEEN)
 
@@ -90,7 +118,12 @@ SQL_BETWEEN = f"""SELECT ID , name , condition
 
 cur.execute(SQL_BETWEEN)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 # 8. Проверка наличия во множестве (IN)
 
@@ -100,7 +133,12 @@ SQL_IN = f"""SELECT ID , name , condition
 
 cur.execute(SQL_IN)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 # 9. Проверка на соответствие шаблону (LIKE)
 SQL_LIKE = f"""SELECT id, surname
@@ -111,7 +149,12 @@ cur.execute(SQL_LIKE)
 
 records = cur.fetchall()
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 #10. Проверка на равенство NULL (is NULL)
 SQL_NULL = f"""SELECT id
@@ -119,7 +162,12 @@ SQL_NULL = f"""SELECT id
             where ID IS NOT NULL"""
 cur.execute(SQL_NULL)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 #11. Сопоставление условия отбора (AND, OR и NOT)
 
@@ -129,7 +177,12 @@ SQL_OR = f"""SELECT surname
                 or id < 3"""
 cur.execute(SQL_OR)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 #12. Сортировка результатов запроса (ORDER ВУ)
 
@@ -139,7 +192,12 @@ SQL_ORDER_BY = f"""SELECT id_students , id_task
 
 cur.execute(SQL_ORDER_BY)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
 #13. Объединение результов нескольких запросов (UNION)
 
@@ -152,5 +210,10 @@ SQL_UNION = f"""SELECT surname
                 where id >5"""
 cur.execute(SQL_UNION)
 
-print(conn)
+records = cur.fetchall()
+for row in records:
+    print(row)
+
+
+conn(close)
 
