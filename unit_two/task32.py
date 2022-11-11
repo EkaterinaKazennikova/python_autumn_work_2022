@@ -10,7 +10,7 @@
 #  в момент вычитания объектов класса obj1 - obj2 и заключается в вычитании из
 #  здоровья первого объекта урона наносимого вторым объектом
 
-недоделано
+#недоделано
 
 from random import randint as rand
 class Person:
@@ -40,9 +40,8 @@ class Person:
             self.dead(other.loss)
             print(f"У {self.name} keep {self.h} health from {self.max_h}")
 
-    #def __repr__(self):
-     #   return f'''
-      #  {self.name} {self.ovo} уровня
+    def __repr__(self):
+        return f'''{self.name} {self.ovo}''' #уровня
 
 class Battle:
     def __init__(self, player_1, player_2):
