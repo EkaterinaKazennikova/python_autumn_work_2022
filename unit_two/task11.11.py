@@ -37,7 +37,10 @@ class Director:
 class Builder(metaclass=abc.ABCMeta):
 
     def __init__(self):
-        self.product = Product()
+        self.product = Product1()
+
+    def __init__(self):
+        self.product = Product2()
 
     @abc.abstractmethod
     def _build_part_processor(self):
@@ -60,24 +63,28 @@ class ConcreteBuilder(Builder):
 
     def _build_part_processor(self):
         self.product.processor = "Intel 7"
+        self.product.processor = 'AMD'
         return self
 
     def _build_part_ram(self):
         self.product.ram = "DIMM"
+        self.product.ram = 'DDR'
         return self
 
     def _build_part_mainboard(self):
         self.product.mainboard = "ATX"
+        self.product.mainboard = 'MINI - ITX'
         return self
 
     def _build_part_harddrive(self):
-        self.product.harddrive = "Toshiba"
+        self.product.harddrive = "SSD"
+        self.product.harddrive = "HDD"
         return self
 
     def buld(self):
         return self.product
 
-class Product:
+class Product1:
 
     def __init__(self):
         self.processor = None
@@ -87,6 +94,18 @@ class Product:
 
     def __repr__(self):
         return (f"Для того, чтобы произвести компьютер необходимо произвести {self.processor} {self.ram} {self.mainboard} {self.harddrive}")
+
+class Product2:
+
+    def __init__(self):
+        self.processor = None
+        self.ram = None
+        self.mainboard = None
+        self.harddrive = None
+
+    def __repr__(self):
+        return (f"Для того, чтобы произвести компьютер необходимо произвести {self.processor} {self.ram} {self.mainboard} {self.harddrive}")
+
 
 def main():
     print('Процесс производства компьютера:')
