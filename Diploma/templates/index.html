@@ -1,0 +1,21 @@
+<html lang="ru" >
+ <head>
+   <meta charset="utf-8">
+   <title>Healthy Nutrition</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+ </head>
+ <body>
+    <header>
+        <h1 class="logo">{{title}}</h1>
+        <nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('account_create') }}">Создать аккаунт</a></li>
+            <li><a href="{{ url_for('parameters_create') }}">Задать параметры</a></li>
+            <li><a href="{{ url_for('nutrition_create') }}">Внести данные</a></li>
+          </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+ </body>
+</html>
