@@ -22,9 +22,9 @@ def get_db_connection():
 def get(self, id):
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute('SELECT name FROM students_task where students_id = 1')
-    name = cur.fetchall()
-    return name
+    cur.execute('SELECT surname FROM students where id = 1')
+    surname = cur.fetchall()
+    return surname
 
  #""" Передаем изменения в json """
 #router /student/{id}
